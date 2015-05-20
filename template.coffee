@@ -48,32 +48,8 @@ exports.template = (grunt, init, done) ->
 
   ], (err, props) ->
 
-    props.bin = {}
-    props.bin["#{props.name}"] =  "./build/bin/#{props.name}"
-    props.main = './build/lib/main'
-    props.keywords = []
-    props.preferGlobal = true
-    props.dependencies =
-      "commander": "^2.8.1"
-
-    props.devDependencies =
-      "chai": "^2.3.0"
-      "coffee-script": "^1.9.2"
-      "gulp": "^3.8.11"
-      "gulp-chmod": "^1.2.0"
-      "gulp-clean": "^0.3.1"
-      "gulp-coffee": "^2.3.1"
-      "gulp-coffeelint": "^0.4.0"
-      "gulp-insert": "^0.4.0"
-      "gulp-mocha": "^2.0.1"
-      "gulp-rename": "^1.2.2"
-      "gulp-uglify": "^1.2.0"
-      "run-sequence": "^1.1.0"
-
-
     # Files to copy (and process).
     files = init.filesToCopy(props)
-
 
     # Add properly-named license files.
     init.addLicenseFiles(files, props.licenses)
@@ -81,12 +57,6 @@ exports.template = (grunt, init, done) ->
     # Actually copy (and process) files.
     init.copyAndProcess(files, props)
 
-    # Generate package.json file.
-    init.writePackageJSON 'package.json',  props, (pkg, props) ->
-      pkg['scripts'] =
-        test: 'gulp test'
-        #postinstall: 'git flow init && git add . && git commit -am "init commit"'
-      pkg
 
     # All done!
     done()
