@@ -1,5 +1,5 @@
 ###
- * grunt-init-node-coffee
+ * grunt-init-{%= name %}
  * http://ralphcrisostomo.net
  *
  * Copyright (c) 2014 Ralph Crisostomo

@@ -1,4 +1,4 @@
-# grunt-init-grunt-init
+# grunt-init-{%= name %}
 
 > Create a grunt-init module with [grunt-init][], including Nodeunit unit tests.
 
